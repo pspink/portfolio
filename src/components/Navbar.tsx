@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { PortfolioProfile } from '../data/portfolioData';
-import { FileText, Send, SlidersHorizontal, Menu, X } from 'lucide-react';
+import { FileText, Send, Menu, X } from 'lucide-react';
 
 interface NavbarProps {
   profile: PortfolioProfile;
   onOpenResume: () => void;
-  onOpenCustomize: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenResume, onOpenCustomize }) => {
+export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenResume }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -61,15 +60,6 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenResume, onOpenCus
         {/* Zone 3: Primary Actions */}
         <div className="hidden sm:flex items-center gap-3">
           <button
-            onClick={onOpenCustomize}
-            className="p-2 text-slate-400 hover:text-white hover:bg-slate-800/70 rounded-lg transition-colors border border-slate-800"
-            title="Customize Portfolio Profile"
-            aria-label="Customize Portfolio Data"
-          >
-            <SlidersHorizontal className="w-4 h-4" />
-          </button>
-
-          <button
             onClick={onOpenResume}
             className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium text-slate-200 bg-slate-800/80 hover:bg-slate-800 hover:text-white rounded-lg border border-slate-700/80 transition-colors whitespace-nowrap"
           >
@@ -88,13 +78,6 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenResume, onOpenCus
 
         {/* Mobile menu trigger */}
         <div className="flex sm:hidden items-center gap-2">
-          <button
-            onClick={onOpenCustomize}
-            className="p-2 text-slate-400 hover:text-white hover:bg-slate-800/70 rounded-lg transition-colors border border-slate-800"
-            aria-label="Customize Profile"
-          >
-            <SlidersHorizontal className="w-4 h-4" />
-          </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 text-slate-300 hover:text-white hover:bg-slate-800/70 rounded-lg transition-colors"

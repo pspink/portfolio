@@ -15,7 +15,6 @@ import { SkillsSection } from './components/SkillsSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { ContactSection } from './components/ContactSection';
 import { ResumeModal } from './components/ResumeModal';
-import { CustomizeModal } from './components/CustomizeModal';
 import { Footer } from './components/Footer';
 
 const STORAGE_KEY = 'portfolio_profile_priyanka_github_v7';
@@ -41,26 +40,7 @@ export default function App() {
   });
 
   const [isResumeOpen, setIsResumeOpen] = useState(false);
-  const [isCustomizeOpen, setIsCustomizeOpen] = useState(false);
   const [selectedTechFilter, setSelectedTechFilter] = useState<string | null>(null);
-
-  const handleSaveProfile = (updated: PortfolioProfile) => {
-    setProfile(updated);
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
-    } catch (e) {
-      console.error('Failed to save to localStorage', e);
-    }
-  };
-
-  const handleResetProfile = () => {
-    setProfile(defaultProfile);
-    try {
-      localStorage.removeItem(STORAGE_KEY);
-    } catch (e) {
-      console.error('Failed to remove from localStorage', e);
-    }
-  };
 
   const handleSelectSkill = (skillName: string) => {
     setSelectedTechFilter(skillName);
@@ -76,7 +56,6 @@ export default function App() {
       <Navbar
         profile={profile}
         onOpenResume={() => setIsResumeOpen(true)}
-        onOpenCustomize={() => setIsCustomizeOpen(true)}
       />
 
       {/* Main Content Sections */}
@@ -129,15 +108,6 @@ export default function App() {
         isOpen={isResumeOpen}
         onClose={() => setIsResumeOpen(false)}
         profile={profile}
-      />
-
-      {/* Profile Customizer Modal */}
-      <CustomizeModal
-        isOpen={isCustomizeOpen}
-        onClose={() => setIsCustomizeOpen(false)}
-        profile={profile}
-        onSave={handleSaveProfile}
-        onReset={handleResetProfile}
       />
     </div>
   );
