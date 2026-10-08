@@ -18,7 +18,7 @@ import { ResumeModal } from './components/ResumeModal';
 import { CustomizeModal } from './components/CustomizeModal';
 import { Footer } from './components/Footer';
 
-const STORAGE_KEY = 'portfolio_profile_priyanka_linkedin_v6';
+const STORAGE_KEY = 'portfolio_profile_priyanka_github_v7';
 
 export default function App() {
   const [profile, setProfile] = useState<PortfolioProfile>(() => {
@@ -31,6 +31,7 @@ export default function App() {
           ...parsed,
           avatarUrl: '',
           linkedin: 'https://www.linkedin.com/in/sharma-pri',
+          github: 'https://github.com/pspink',
         };
       }
     } catch {

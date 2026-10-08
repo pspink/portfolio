@@ -90,7 +90,7 @@ export const defaultProfile: PortfolioProfile = {
   email: "psrocks1992@gmail.com",
   phone: "+91 96111 18622",
   status: "Available in Bangalore to Join Immediately",
-  github: "https://github.com/psrocks1992",
+  github: "https://github.com/pspink",
   linkedin: "https://www.linkedin.com/in/sharma-pri",
   twitter: "https://x.com/psrocks1992",
   languagesSpoken: ["English (Professional)", "Hindi (Native)", "Bengali (Native)"],
